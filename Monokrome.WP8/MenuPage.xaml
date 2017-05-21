@@ -1,0 +1,49 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Monokrome.WP8.MenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:GoogleAds="clr-namespace:GoogleAds;assembly=GoogleAds"
+    xmlns:rateAppControl="clr-namespace:RateMyApp.Controls;assembly=RateMyApp"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="monokrome" Margin="21,10,0,28" Style="{StaticResource PhoneTextTitle1Style}"/>
+        <Button x:Name="StartButton" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="12,0,12,0" Click="StartButton_Click" Content="start" />
+        <Button x:Name="RulesButton" Grid.Row="2" Grid.Column="0" Click="RulesButton_Click" Content="rules"/>
+        <Button x:Name="SendMailButton" Grid.Row="2" Grid.Column="1" Click="SendMailButton_Click" Content="contact"/>
+        <Button x:Name="RateAppButton" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="RateAppButton_Click" Content="rate monokrome"/>
+        <GoogleAds:AdView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="5"
+            AdUnitID="ca-app-pub-2198044040722697/5689241161" Format="Banner" />
+
+        <rateAppControl:FeedbackOverlay x:Name="FeedbackOverlay"
+                              Grid.RowSpan="4" Grid.ColumnSpan="2" FirstCount="2" SecondCount="5"
+                              FeedbackTo="beetrootsoup@outlook.com"
+                              ApplicationName="monokrome"
+                              CompanyName="beetrootSOUP"/>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>
